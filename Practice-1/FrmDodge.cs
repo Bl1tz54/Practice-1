@@ -15,6 +15,7 @@ namespace Practice_1
         Graphics g; //declare a graphics object called g
         // declare space for an array of 7 objects called planet 
         Planet[] planet = new Planet[7];
+        Random yspeed = new Random();
         public FrmDodge()
         {
             InitializeComponent();
@@ -33,6 +34,10 @@ namespace Practice_1
             //call the Planet class's DrawPlanet method to draw the image planet1 
             for (int i = 0; i < 7; i++)
             {
+                // generate a random number from 5 to 20 and put it in rndmspeed
+                int rndmspeed = yspeed.Next(5, 20);
+                planet[i].y += rndmspeed;
+
                 //call the Planet class's drawPlanet method to draw the images
                 planet[i].DrawPlanet(g);
             }
