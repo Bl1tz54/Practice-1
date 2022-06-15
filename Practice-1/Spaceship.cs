@@ -26,5 +26,13 @@ namespace Practice_1
             spaceship = Properties.Resources.alien1;
             spaceRec = new Rectangle(x, y, width, height);
         }
+
+        //methods
+        public void DrawSpaceship(Graphics g)
+        {
+
+            g.DrawImage(spaceship, spaceRec);
+        }
+
     }
 }
