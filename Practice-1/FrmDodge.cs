@@ -12,6 +12,8 @@ namespace Practice_1
 {
     public partial class FrmDodge : Form
     {
+        bool left, right;
+        string move;
         Graphics g; //declare a graphics object called g
         // declare space for an array of 7 objects called planet 
         Planet[] planet = new Planet[7];
@@ -43,6 +45,33 @@ namespace Practice_1
                 //call the Planet class's drawPlanet method to draw the images
                 planet[i].DrawPlanet(g);
             }
+        }
+
+        private void FrmDodge_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = true; }
+            if (e.KeyData == Keys.Right) { right = true; }
+        }
+
+        private void FrmDodge_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = false; }
+            if (e.KeyData == Keys.Right) { right = false; }
+        }
+
+        private void TmrShip_Tick(object sender, EventArgs e)
+        {
+            if (right) // if right arrow key pressed
+            {
+                move = "right";
+                spaceship.MoveSpaceship(move);
+            }
+            if (left) // if left arrow key pressed
+            {
+                move = "left";
+                spaceship.MoveSpaceship(move);
+            }
+
         }
 
         private void TmrPlanet_Tick(object sender, EventArgs e)

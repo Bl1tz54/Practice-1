@@ -32,6 +32,7 @@ namespace Practice_1
             this.components = new System.ComponentModel.Container();
             this.PnlGame = new System.Windows.Forms.Panel();
             this.TmrPlanet = new System.Windows.Forms.Timer(this.components);
+            this.TmrShip = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // PnlGame
@@ -48,15 +49,24 @@ namespace Practice_1
             this.TmrPlanet.Enabled = true;
             this.TmrPlanet.Tick += new System.EventHandler(this.TmrPlanet_Tick);
             // 
+            // TmrShip
+            // 
+            this.TmrShip.Enabled = true;
+            this.TmrShip.Interval = 50;
+            this.TmrShip.Tick += new System.EventHandler(this.TmrShip_Tick);
+            // 
             // FrmDodge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 486);
             this.Controls.Add(this.PnlGame);
+            this.KeyPreview = true;
             this.Name = "FrmDodge";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodge";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmDodge_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmDodge_KeyUp);
             this.ResumeLayout(false);
 
         }
@@ -65,6 +75,7 @@ namespace Practice_1
 
         private System.Windows.Forms.Panel PnlGame;
         private System.Windows.Forms.Timer TmrPlanet;
+        private System.Windows.Forms.Timer TmrShip;
     }
 }
 
