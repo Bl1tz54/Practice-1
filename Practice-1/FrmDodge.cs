@@ -77,8 +77,9 @@ namespace Practice_1
 
         private void FrmDodge_Load(object sender, EventArgs e)
         {
-            // pass lives from LblLives Text property to lives variable
-            lives = int.Parse(LblLives.Text);
+            MessageBox.Show("Use the left and right arrow keys to move the spaceship. \n Don't get hit by the planets! \n Every planet that gets past scores a point. \n If a planet hits a spaceship a life is lost! \n \n Enter your Name \n Click Start to begin", "Game Instructions");
+            TxtName.Focus();
+
         }
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
